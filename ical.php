@@ -11,4 +11,5 @@
 	header('Content-Type: text/calendar; charset=utf-8');
 	echo $url;
 	exit();
+	// From: http://phpfashion.com/export-z-facebooku-do-google-calendar
 ?>
