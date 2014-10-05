@@ -8,6 +8,12 @@
 		return strpos($m[0], 'PARTSTAT:NEEDS-ACTION') ? '' : $m[0];
 	}
 	$url = preg_replace_callback('#^BEGIN:VEVENT(.*?)^END:VEVENT\r?\n#sm', 'eventFilter', $url);
+	header('Content-Description: File Transfer');
+	header('Content-Disposition: attachment; filename=my.ical');
+	header('Content-Transfer-Encoding: binary');
+	header('Expires: 0');
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	header('Pragma: public');
 	header('Content-Type: text/calendar; charset=utf-8');
 	echo $url;
 	exit();
